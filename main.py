@@ -1,16 +1,11 @@
 import asyncio  # Работа с асинхронностью
 
-from aiogram import Bot, Dispatcher, F
-from aiogram.filters import Command, state, StateFilter  # Фильтр для /start, /...
+from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 
-from aiogram.types import Message, message  # Тип сообщения
-from pyowm import OWM
-
-from aiogram.fsm.context import FSMContext
 from config import config  # Config
 from handlers import common, pogoda
-from states.form import FormStatesGroup
+from keyboards.menu import main_menu_command
 
 API_TOKEN = config.token
 
@@ -28,6 +23,7 @@ async def main():
 
     try:
         print('Bot Started')
+        await bot.set_my_commands(main_menu_command)
         await dp.start_polling(bot)
 
     finally:

@@ -1,11 +1,9 @@
 from aiogram import Router
-from aiogram.filters import Command, StateFilter
-from aiogram.fsm.context import FSMContext
+from aiogram.filters import Command
 from aiogram.types import Message
 from pyowm import OWM
 
 from utils.utils import user_data
-from states.form import FormStatesGroup
 
 pogoda_router = Router()
 
@@ -49,7 +47,7 @@ async def handle_show_weather(message: Message):
         temp = weather.temperature('celsius')
         wind = weather.wind()
         await message.answer(
-            f"В городе {city} сейчас\nтемпература составляет🏝: {temp['temp']} °С\nCкорость ветра🌪: {wind['speed']} м/с\n Влажность воздуха {humidity}%\n \nМожете ввести город еще раз")
+            f"В городе {city} сейчас\nтемпература составляет🏝: {temp['temp']} °С\nCкорость ветра🌪: {wind['speed']} м/с\n Влажность воздуха {humidity}%\n")
 
     except:
         await message.answer('Город не выбран')

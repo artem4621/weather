@@ -3,8 +3,8 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
-from utils.utils import user_data
 from states.form import FormStatesGroup
+from utils.utils import user_data
 
 common_router = Router()
 
