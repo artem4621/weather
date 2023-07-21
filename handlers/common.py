@@ -12,7 +12,7 @@ common_router = Router()
 @common_router.message(Command(commands=['start']))  # Берём только сообщения, являющиеся командой /start
 async def start_command(message: Message):  # message - сообщение, которое прошло через фильтр
     await message.answer(
-        "Привет!Я бот который умеет показывать погоду. Напиши /city чтобы ввести город и посмотреть погоду.")
+        "Привет!Я бот который умеет показывать погоду⛅. Напиши /city чтобы ввести город и /show_weather чтобы посмотреть погоду.")
 
 
 @common_router.message(Command(commands=['city']))
